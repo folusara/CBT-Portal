@@ -6,7 +6,7 @@ var questions =[{
 },{
     question: "Who is the world best footballer?",
     option:['Christiano Ronaldo','Messi','Neymar','Mbappe'],
-    answer: "",
+    answer: "Christiano Ronaldo",
     chosen_Answer:"",
 },{
     question: "Who is the greatest footballer?",
@@ -31,6 +31,7 @@ var questions =[{
     chosen_Answer:"",
 }]
 
+var score=0;
 var ch
 var index=0
 function show() {
@@ -63,8 +64,18 @@ function check(params) {
   
    params.target.checked=true;
    questions[index].chosen_Answer=params.target.value;
-   console.log(params.target.value);
-   console.log(questions[index].chosen_Answer)
+//    console.log(params.target.value);
+//    console.log(questions[index].chosen_Answer)
+if ( questions[index].answer == questions[index].chosen_Answer) {
+    score = score + 1
+}
+  
+}
+
+function submitt() {
+  
+    console.log(score);
+    result.innerHTML=`You scored ${score} out of ${questions.length} questions`
 }
 
 function previous() {
