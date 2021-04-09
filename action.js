@@ -32,7 +32,7 @@ var questions =[{
 }]
 
 var score=0;
-var ch
+ var ch
 var index=0
 function show() {
     if (!questions[index]) {
@@ -40,14 +40,14 @@ function show() {
     }
     quest.innerHTML = `<h5> ${index +1}. ${questions[index].question}</h5>`
     questions[index].option.forEach(function (element) {
-        quest.innerHTML += `<h6><input type=radio value  = ${element}> ${element} </h6>`;
+        quest.innerHTML += `<h6><input type=radio value  = '${element}'> ${element} </h6>`;
     });
-    ch= document.querySelectorAll("input[type=radio]")
+     ch= document.querySelectorAll("input[type=radio]")
     ch.forEach(function(params) {
                 params.addEventListener("click",check)
-                // if (params.value == questions[index].chosen_Answer) {
-                //     params.checked = true
-                // }
+                 if (params.value == questions[index].chosen_Answer) {
+                     params.checked = true
+                 }
              });
 }
 
@@ -66,16 +66,35 @@ function check(params) {
    questions[index].chosen_Answer=params.target.value;
 //    console.log(params.target.value);
 //    console.log(questions[index].chosen_Answer)
-if ( questions[index].answer == questions[index].chosen_Answer) {
-    score = score + 1
-}
+
+
+
   
 }
 
 function submitt() {
-  
-    console.log(score);
-    result.innerHTML=`You scored ${score} out of ${questions.length} questions`
+    // var score =questions.filter(function (ques) {
+    //     return ques.chosen_Answer == ques.answer
+    // })
+    // score=0
+    // console.log(score.length);
+
+score=0
+    for (let index = 0; index < questions.length; index++) {
+        if (questions[index].chosen_Answer == questions[index].answer) {
+                     score++
+                }
+        
+    }
+    // score =0;
+    // questions.forEach(ques => {
+    //     if (ques.chosen_Answer == ques.answer) {
+    //         score++
+    //     }
+    // });
+    // alert(score)
+     
+    quest.innerHTML=`You got ${score} out of ${questions.length} questions`
 }
 
 function previous() {
