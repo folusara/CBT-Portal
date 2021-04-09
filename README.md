@@ -1,4 +1,2 @@
-# Printing-Table-fromAN-array
-# Printing-Table-fromAN-array
-# printing-a-table-from-an-array-containng-the-data
-# CBT-Portal
+# CBT-Portal- A sample of a computer based test platform using javascript
+
